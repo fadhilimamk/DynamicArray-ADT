@@ -237,15 +237,61 @@ TabInt PlusTab (TabInt T1, TabInt T2)
 
   return T;
 }
-TabInt MinusTab (TabInt T1, TabInt T2){}
+TabInt MinusTab (TabInt T1, TabInt T2)
 /* Prekondisi : T1 dan T2 berukuran sama dan tidak kosong */
 /* Mengirimkan T1-T2, yaitu setiap elemen T1 dikurangi elemen T2 pada indeks yang sama */
-TabInt KaliTab (TabInt T1, TabInt T2){}
+{
+  /* Kamus */
+  TabInt T;
+  IdxType i;
+
+  /* Algoritma */
+  MakeEmpty(&T,NbElmt(T1));
+  for (i = IdxMin; i <= GetLastIdx(T1); i++) {
+    Elmt(T,i) = Elmt(T1,i) - Elmt(T2,i);
+  }
+  Neff(T)=Neff(T1);
+
+  return T;
+}
+
+TabInt KaliTab (TabInt T1, TabInt T2)
 /* Prekondisi : T1 dan T2 berukuran sama dan tidak kosong */
 /* Mengirimkan T1 * T2 dengan definisi setiap elemen dengan indeks yang sama dikalikan */
-TabInt KaliKons (TabInt Tin, ElType c){}
+{
+  /* Kamus */
+  TabInt T;
+  IdxType i;
+
+  /* Algoritma */
+  MakeEmpty(&T,NbElmt(T1));
+  for (i = IdxMin; i <= GetLastIdx(T1); i++) {
+    Elmt(T,i) = Elmt(T1,i) * Elmt(T2,i);
+  }
+  Neff(T)=Neff(T1);
+
+  return T;
+}
+
+
+TabInt KaliKons (TabInt Tin, ElType c)
 /* Prekondisi : Tin tidak kosong */
 /* Mengirimkan tabel dengan setiap elemen Tin dikalikan c */
+{
+  /* Kamus */
+  TabInt T;
+  IdxType i;
+
+  /* Algoritma */
+  MakeEmpty(&T,NbElmt(Tin));
+  for (i = IdxMin; i <= GetLastIdx(Tin); i++) {
+    Elmt(T,i) = Elmt(Tin,i) * c;
+  }
+  Neff(T)=Neff(Tin);
+
+  return T;
+}
+
 
 /* ********** OPERATOR RELASIONAL ********** */
 /* *** Operasi pembandingan tabel : < =, > *** */
@@ -394,7 +440,7 @@ void AddElUnik (TabInt * T, ElType X)
 /* Proses : Cek keunikan dengan sequential search dengan sentinel */
 /*          Kemudian tambahkan elemen jika belum ada */
 {
-  
+
 }
 
 /* ********** TABEL DGN ELEMEN TERURUT MEMBESAR ********** */
