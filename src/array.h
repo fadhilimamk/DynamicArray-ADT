@@ -67,6 +67,9 @@ void Dealokasi (TabInt *T);
 */
 
 void AddContainer (TabInt *T);
+/* I.S T terdefinisi;
+	 F.S TI(T) bertambah alokasi memorinya untuk 1 data bertipe ElType;
+*/
 
 /* ********** SELEKTOR (TAMBAHAN) ********** */
 /* *** Banyaknya elemen *** */
